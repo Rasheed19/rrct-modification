@@ -186,7 +186,7 @@ class RRCTFeatureSelection():
                 Design matrix with selected features
         '''
         
-        return X[self.selected_features_indices_[0]]
+        return X[:, self.selected_features_indices_[0]]
     
     def apply_select(self, X, y, verbose=0):
         '''
@@ -203,13 +203,7 @@ class RRCTFeatureSelection():
         -------
                 Design matrix with selected features
         '''
-        apply_rrct = self.apply(X=X, y=y, verbose=verbose)
+        self.selected_features_indices_, self.rrct_values_ = RRCT(X=X, y=y, K=self.K, verbose=verbose)
+        
 
-        return apply_rrct.apply_select(X)
-
-
-
-
-
-
-    
+        return X[:, self.selected_features_indices_[0]]
