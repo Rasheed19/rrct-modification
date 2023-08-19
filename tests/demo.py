@@ -1,4 +1,4 @@
-from src.algorithm import RRCTFeatureSelection
+from rrct.algorithm import RRCTFeatureSelection
 import numpy as np
 from sklearn.datasets import load_diabetes
 
