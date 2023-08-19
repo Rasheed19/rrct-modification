@@ -187,14 +187,14 @@ class RRCTFeatureSelection:
     Args:
     ----
             K:             a non-negative integer specifying the number of features to be selected,
-                           default is k=None, which means all features will be selected
+                           default is K=None, which means all features will be selected
             scale_feature: whether features have been scaled or not 
 
     Methods:
     ------
             apply:          apply the algorithm to a given training set
             apply_select:   apply the algorithm and select features from the training set
-            select:         select features from the training set based on to apply results
+            select:         select features from the training set based on the fitted rrct object
     """
 
     # Method for variable initializations 
@@ -206,7 +206,7 @@ class RRCTFeatureSelection:
 
     # In case of printing the created object, this will be displayed
     def __str__(self):
-        return f"RRCTFeatureSelection(k={self.K}) object"
+        return f"RRCTFeatureSelection(K={self.K}, scale_feature={self.scale_feature}) object"
 
     def apply(self, X, y, verbose=0):
         """
