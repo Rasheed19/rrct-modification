@@ -11,10 +11,11 @@ The RRCT algorithm is computationally very efficient and can run within a few se
 
 
 ### Class description 
-*RRCTFeatureSelection(K=None)*
+*RRCTFeatureSelection(K=None, scale_feature=False)*
 
 1. ***Parameter:*** 
     - *K*, non-zero positive integer to specify the number of selected features. Default value is *K=None*, which means all features will be selected.
+    - *scale_feature*, a boolean. Set to `False` if your features have been standardized (mean of 0 and standard deviation of 1), otherwise set to `True` and the features will be standardized before applying the algorithm. Default value is `False`.
 2. ***Attributes:*** 
     - *selected_feature_indices_*, an array of indices corresponding to the indices of selected features
     - *rrct_values_*, a dictionary containing the relevance, redundancy, complementarity, and RRCT metrics of the selected features
@@ -34,7 +35,7 @@ pip install rrct
 from rrct.algorithm import RRCTFeatureSelection
 
 # RRCT with K=20
-selector = RRCTFeatureSelection(K=20)
+selector = RRCTFeatureSelection(K=20, scale_feature=False)
 
 # Apply RRCT to a training set X, y
 selector.apply(X=X, y=y)
