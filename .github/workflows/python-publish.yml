@@ -30,4 +30,8 @@ jobs:
       if: startsWith(github.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@release/v1.0.2
       with:
+<<<<<<< HEAD
         password: ${{ secrets.PYPI_API_TOKEN }}
+=======
+        password: ${{ secrets.PYPI_API_TOKEN }}
+>>>>>>> e2766dd2853b610f8ad976e2282b295151492eef
