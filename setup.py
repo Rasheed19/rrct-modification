@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="rrct",
-    version="1.0.2",
+    version="1.0.3",
     author="Rasheed Ibraheem",
     author_email="R.O.Ibraheem@sms.ed.ac.uk",
     maintainer="Rasheed Ibraheem",
