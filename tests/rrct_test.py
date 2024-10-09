@@ -20,10 +20,8 @@ def load_data() -> FixtureData:
     # https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset
     X, y = load_diabetes(return_X_y=True, as_frame=True)
 
-    # get feature names
     feature_names = list(X.columns)
 
-    # convert to numpy arrays
     X, y = X.values, y.values
 
     return FixtureData(X=X, y=y, feature_names=feature_names)
