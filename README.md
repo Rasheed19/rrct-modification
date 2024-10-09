@@ -32,7 +32,7 @@ pip install rrct
 ### Example
 ```python
 # import the RRCT feature selection object
-from rrct mport RRCTFeatureSelection
+from rrct import RRCTFeatureSelection
 
 # RRCT with K=20
 selector = RRCTFeatureSelection(K=20, scale_feature=False)
