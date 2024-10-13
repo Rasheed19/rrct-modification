@@ -31,26 +31,34 @@ pip install rrct
 
 ### Example
 ```python
-# import the RRCT feature selection object
 from rrct import RRCTFeatureSelection
+import numpy as np
+from sklearn.datasets import load_diabetes
 
-# RRCT with K=20
-selector = RRCTFeatureSelection(K=20, scale_feature=False)
+# Note that the features have been scaled see here
+# https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset
+X, y = load_diabetes(return_X_y=True, as_frame=True)
 
-# Apply RRCT to a training set X, y
-selector.apply(X=X, y=y)
 
-# Select features from X
-X_selected = selector.select(X=X)
+# get feature names
+feature_names = list(X.columns)
+feature_names = np.array(feature_names)
 
-# Alternatively, apply_select can be called, which applies RRCT and select features from  X
-X_selected = selector.apply_select(X=X, y=y)
 
-# Get the selected feature indices
-selector.selected_feature_indices_
+# convert to numpy arrays
+X, y = X.values, y.values
 
-# Get the summary of the RRCT metrics
-selector.rrct_values_
+# define and apply rrct feature selection algorithm
+selector = RRCTFeatureSelection(
+        K=None,
+        scale_feature=False
+    )
+selector.apply(X, y)
+selected_features = selector.select(X)
+
+
+print(f"selected feature indices: {selector.selected_features_indices_}")
+print(f"selected features: {feature_names[selector.selected_features_indices_]}")
 ```
 ****************************************
 
